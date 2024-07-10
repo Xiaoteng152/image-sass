@@ -14,9 +14,9 @@ export const authOptions: AuthOptions = {
     providers: [
         GitlabProvider({
             clientId:
-                "931d22cf064f2b15c853044866fd07683b909316b4ef83f32168b56cb068ced6",
+                "e688d12fef27a77cd3651c0476c5a811a012201fba01441cfde6d673f3039f96",
             clientSecret:
-                "gloas-1b58971e83d02b4b56d23e60ce0434eb6f47931d2daa163a8a049067ff712256",
+                "gloas-5144bc69e2a1289659fadb0711c7a5c68e3c1b4bff6c24fefb529fa43f66a5f5",
         }),
     ],
 };
