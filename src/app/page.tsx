@@ -1,12 +1,14 @@
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
 import { Textarea } from "@/components/Textarea";
-import { redirect } from "next/navigation";
+import { redirect } from "next/navigation";//app里用navigtion的api
 import { UserInfo, SessionProvider } from "./UserInfo";
 import { getServerSession } from "@/server/auth";
 
 export default async function Home() {
     const session = await getServerSession();
+
+    console.log(session,'======> only sercer can see')
 
     if (!session?.user) {
         redirect("/api/auth/signin");
