@@ -1,4 +1,3 @@
-import { TestRouter } from './trpc';
 import { getServerSession } from '@/server/auth'
 import {initTRPC, TRPCError} from '@trpc/server'
 import { createCallerFactory } from '@trpc/server/unstable-core-do-not-import'
