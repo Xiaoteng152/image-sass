@@ -11,12 +11,27 @@ dependencies:
   '@radix-ui/react-slot':
     specifier: ^1.0.2
     version: 1.0.2(@types/react@18.2.38)(react@18.2.0)
+  '@tanstack/react-query':
+    specifier: ^5.51.5
+    version: 5.51.5(react@18.2.0)
+  '@trpc/client':
+    specifier: 11.0.0-rc.466
+    version: 11.0.0-rc.466(@trpc/server@11.0.0-rc.466)
+  '@trpc/react-query':
+    specifier: 11.0.0-rc.466
+    version: 11.0.0-rc.466(@tanstack/react-query@5.51.5)(@trpc/client@11.0.0-rc.466)(@trpc/server@11.0.0-rc.466)(react-dom@18.2.0)(react@18.2.0)
+  '@trpc/server':
+    specifier: 11.0.0-rc.466
+    version: 11.0.0-rc.466
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
+  drizzle-zod:
+    specifier: ^0.5.1
+    version: 0.5.1(drizzle-orm@0.32.0)(zod@3.23.8)
   lucide-react:
     specifier: ^0.293.0
     version: 0.293.0(react@18.2.0)
@@ -773,6 +788,47 @@ packages:
       tslib: 2.6.2
     dev: false
 
+  /@tanstack/query-core@5.51.5:
+    resolution: {integrity: sha512-qovOto6hFet2zA4Pf3cDO+qkOqskO6xP39PlKnr6YKPtjRsePWyZnTaMf59+VnlOLY8gpku1I4WPC4dqBXo4FQ==}
+    dev: false
+
+  /@tanstack/react-query@5.51.5(react@18.2.0):
+    resolution: {integrity: sha512-jaYYPGF55HT3DSV2NxFHa7zGRUm6LiRENw1rspkzqNiOU93umP5YCdE/l4S61/ZdLnjzwYIM4FU96EQt+imq5Q==}
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      '@tanstack/query-core': 5.51.5
+      react: 18.2.0
+    dev: false
+
+  /@trpc/client@11.0.0-rc.466(@trpc/server@11.0.0-rc.466):
+    resolution: {integrity: sha512-8nEYgDPvTrXzn00FgLEOU/BHtH89LVQ0JTiW2efa4wW2XIrj3Nv/QKCRkNXV6yu7VSefwU+p2PulUL6TjNlzAg==}
+    peerDependencies:
+      '@trpc/server': 11.0.0-rc.466+1e8344ea7
+    dependencies:
+      '@trpc/server': 11.0.0-rc.466
+    dev: false
+
+  /@trpc/react-query@11.0.0-rc.466(@tanstack/react-query@5.51.5)(@trpc/client@11.0.0-rc.466)(@trpc/server@11.0.0-rc.466)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-nt0hcskUrr1+kj8kRRhucB6h+VuK55By7ZR1oxaIGdbPygwfXoi2n4+s3t7kjZsJzugKDWtDnwJGfGFaUIP62A==}
+    peerDependencies:
+      '@tanstack/react-query': ^5.49.2
+      '@trpc/client': 11.0.0-rc.466+1e8344ea7
+      '@trpc/server': 11.0.0-rc.466+1e8344ea7
+      react: '>=18.2.0'
+      react-dom: '>=18.2.0'
+    dependencies:
+      '@tanstack/react-query': 5.51.5(react@18.2.0)
+      '@trpc/client': 11.0.0-rc.466(@trpc/server@11.0.0-rc.466)
+      '@trpc/server': 11.0.0-rc.466
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@trpc/server@11.0.0-rc.466:
+    resolution: {integrity: sha512-/40QZXyZCc3HvgJbQ2+IqCGm4m+fJs7q7gMp6nLiuPB3FIJJeV0r+w1M/NGcG5avbCJ3A5Qy45s4N1glcMv1ug==}
+    dev: false
+
   /@types/cookie@0.6.0:
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
     dev: false
@@ -1382,7 +1438,16 @@ packages:
       pg: 8.10.0
       postgres: 3.4.3
       react: 18.2.0
-    dev: true
+
+  /drizzle-zod@0.5.1(drizzle-orm@0.32.0)(zod@3.23.8):
+    resolution: {integrity: sha512-C/8bvzUH/zSnVfwdSibOgFjLhtDtbKYmkbPbUCq46QZyZCH6kODIMSOgZ8R7rVjoI+tCj3k06MRJMDqsIeoS4A==}
+    peerDependencies:
+      drizzle-orm: '>=0.23.13'
+      zod: '*'
+    dependencies:
+      drizzle-orm: 0.32.0(@types/react@18.2.38)(pg@8.10.0)(postgres@3.4.3)(react@18.2.0)
+      zod: 3.23.8
+    dev: false
 
   /electron-to-chromium@1.4.594:
     resolution: {integrity: sha512-xT1HVAu5xFn7bDfkjGQi9dNpMqGchUkebwf1GL7cZN32NSwwlHRPMSDJ1KN6HkS0bWUtndbSQZqvpQftKG2uFQ==}

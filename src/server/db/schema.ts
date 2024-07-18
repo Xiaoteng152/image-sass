@@ -4,6 +4,7 @@ import {
     text,
     primaryKey,
     integer,
+    date,
 } from "drizzle-orm/pg-core";
 import type { AdapterAccount } from "next-auth/adapters";
 
@@ -13,6 +14,8 @@ export const users = pgTable("user", {
     email: text("email").notNull(),
     emailVerified: timestamp("emailVerified", { mode: "date" }),
     image: text("image"),
+    createAt:date("create_at").defaultNow(),
+
 });
 
 export const accounts = pgTable(

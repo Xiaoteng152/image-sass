@@ -1,18 +1,18 @@
+"use client"
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
 import { Textarea } from "@/components/Textarea";
-import { redirect } from "next/navigation";//app里用navigtion的api
 import { UserInfo, SessionProvider } from "./UserInfo";
-import { getServerSession } from "@/server/auth";
+import { trpcClientReact } from "@/utils/api";
 
-export default async function Home() {
-    const session = await getServerSession();
-
-    console.log(session,'======> only sercer can see')
-
-    if (!session?.user) {
-        redirect("/api/auth/signin");
+export default  function Home() {
+//用reactquery获取数据
+const{data,isLoading,isError}=trpcClientReact.hello.useQuery(
+    void 0,
+    {
+        refetchOnWindowFocus:false,
     }
+);
 
     return (
         <div className="h-screen flex justify-center items-center">
@@ -24,6 +24,12 @@ export default async function Home() {
                     placeholder="Description"
                 ></Textarea>
                 <Button type="submit">Submit</Button>
+                {data?.hello}
+                {isLoading&&'Loading...'}
+                {isError&&'Error...'}
+
+
+
             </form>
             <SessionProvider>
                 <UserInfo></UserInfo>
