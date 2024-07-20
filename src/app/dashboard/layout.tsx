@@ -1,8 +1,16 @@
+import { getServerSession } from "@/server/auth";
+import { redirect } from "next/navigation";
 
-import * as React from 'react';
+export default async function DashboardLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    const session = await getServerSession();
 
-export default function DashboardLayout({children}:{children:React.ReactNode}){
-  return (
-    <>DashBoard</>
-  )
+    if (!session?.user) {
+        redirect("/api/auth/signin");
+    }
+
+    return <>{children}</>;
 }

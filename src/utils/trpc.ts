@@ -1,7 +1,6 @@
 import { getServerSession } from '@/server/auth'
 import {initTRPC, TRPCError} from '@trpc/server'
 import { createCallerFactory } from '@trpc/server/unstable-core-do-not-import'
-import { resolve } from 'path'
 
 export async function createTPRCContext(){
     const session = await getServerSession()
